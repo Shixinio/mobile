@@ -1,0 +1,44 @@
+@import '../../../app-variables';
+
+.big-label {
+    font-size: 14;
+    vertical-align: center;
+}
+
+.huge-label {
+    font-size: 22;
+}
+
+.recipient-input {
+    width: 100%;
+    text-transform: uppercase;
+}
+
+.number-input {
+    width: 50%;
+}
+
+.icon-button {
+    height: 50;
+    width: 50;
+}
+
+.selected {
+    color: $background-light;
+    background-color: $background-dark;
+}
+
+.scroll-container {
+    height: 60;
+    vertical-align: bottom;
+}
+
+.sideStackLayout {
+    background-color: $background-light;
+}
+
+.sideTitleStackLayout {
+    height: 56;
+    text-align: center;
+    vertical-align: center;
+}

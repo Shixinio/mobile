@@ -1,0 +1,67 @@
+<ActionBar class="action-bar">
+    <StackLayout orientation="horizontal">
+        <Image class="logo-tiny m-r-15" src="res://logo"></Image>
+        <Label class="action-bar-title" [text]="'IMPORT.ACTION_BAR_TITLE' | translate"></Label>
+    </StackLayout>
+</ActionBar>
+
+<ScrollView>
+    <StackLayout class="page-content" orientation="vertical">
+
+        <StackLayout class="container" orientation="vertical">
+
+            <Image class="logo-small m-b-5 m-t-10" src="res://logo"></Image>
+
+            <StackLayout class="info-container" orientation="vertical">
+                <StackLayout orientation="vertical">
+                    <Label class="top text-view-label fa" text="&#xf05a;"></Label>
+                    <Label class="bottom" textWrap="true" [text]="'IMPORT.INFO' | translate"></Label>
+                </StackLayout>
+            </StackLayout>
+
+            <StackLayout *ngIf="this.step == 0" class="p-10" orientation="vertical">
+                <ActivityIndicator busy="true" width="100" height="100" class="activity-indicator"></ActivityIndicator>
+            </StackLayout>
+
+            <StackLayout *ngIf="step == 1">
+                <StackLayout class="body-container" orientation="vertical">
+                    <Label *ngIf="active" class="h3 toggle-label" textWrap="true" [text]="'IMPORT.ACTIVE_ACCOUNT' | translate"></Label>
+                    <Label *ngIf="!active" class="h3 toggle-label" textWrap="true" [text]="'IMPORT.OFFLINE_ACCOUNT' | translate"></Label>
+                    <StackLayout style="width: 100%;" class="info-container" orientation="vertical">
+                        <StackLayout orientation="vertical">
+                            <Label *ngIf="active" class="solo" textWrap="true" [text]="'IMPORT.ACTIVE_ACCOUNT_DESCRIPTION' | translate"></Label>
+                            <Label *ngIf="!active" class="solo" textWrap="true" [text]="'IMPORT.OFFLINE_ACCOUNT_DESCRIPTION' | translate"></Label>
+                        </StackLayout>
+                    </StackLayout>
+
+                    <Switch class="m-10 toggle-switch" checked="true" (checkedChange)="onChecked($event)"></Switch>
+                    <TextField *ngIf="active" class="input input-paad" [hint]="'IMPORT.ACTIVE_ACCOUNT_INPUT_HINT' | translate" [(ngModel)]="activeInput"></TextField>
+                    <GridLayout *ngIf="!active" class="text-left m-t-5" columns="auto, 4*, auto, 4*, auto, 4*, auto, 5*" rows="auto">
+                        <Label col="0" row="1" class="address-label fa" text="BURST-"></Label>
+                        <TextField col="1" row="1" class="input" [(ngModel)]="offlineInputParts[0]" (returnPress)="formatAddress()" maxLength="4" returnKeyType="next"></TextField>
+                        <Label col="2" row="1" class="address-label fa" text="-"></Label>
+                        <TextField col="3" row="1" class="input" [(ngModel)]="offlineInputParts[1]" (returnPress)="formatAddress()" maxLength="4" returnKeyType="next"></TextField>
+                        <Label col="4" row="1" class="address-label fa" text="-"></Label>
+                        <TextField col="5" row="1" class="input" [(ngModel)]="offlineInputParts[2]" (returnPress)="formatAddress()" maxLength="4" returnKeyType="next"></TextField>
+                        <Label col="6" row="1" class="address-label fa" text="-"></Label>
+                        <TextField col="7" row="1" class="input" [(ngModel)]="offlineInputParts[3]" (returnPress)="formatAddress()" maxLength="5" returnKeyType="done"></TextField>
+                    </GridLayout>
+                </StackLayout>
+                <StackLayout orientation="vertical">
+                    <Button *ngIf="active" class="btn btn-primary btn-active action-button fa" [text]="('IMPORT.NEXT' | translate) + ' &#xf18e;'" (tap)="onTapNext($event)"></Button>
+                    <Button *ngIf="!active" class="btn btn-primary btn-active action-button fa" [text]="('IMPORT.IMPORT' | translate) + ' &#xf187;'" (tap)="onTapImport($event)"></Button>
+                </StackLayout>
+            </StackLayout>
+
+            <StackLayout *ngIf="step == 2">
+                <StackLayout class="info-container" orientation="vertical">
+                    <Label textWrap="true" class="solo" [text]="'IMPORT.ACTIVE_ACCOUNT_PIN_INFO' | translate"></Label>
+                </StackLayout>
+                <StackLayout class="body-container" orientation="vertical">
+                    <TextField class="input input-pin" [(ngModel)]="pin" [hint]="'IMPORT.PIN_INPUT_HINT' | translate" keyboardType="number" returnKeyType="done" secure="true"></TextField>
+                    <Button class="btn btn-primary btn-active action-button fa" [text]="('IMPORT.DONE' | translate) + ' &#xf05d;'" (tap)="onTapDone($event)"></Button>
+                </StackLayout>
+            </StackLayout>
+        </StackLayout>
+    </StackLayout>
+</ScrollView>

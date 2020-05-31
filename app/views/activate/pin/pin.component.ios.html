@@ -1,0 +1,14 @@
+<StackLayout *ngIf="loading" style="margin-bottom: 200px;" orientation="vertical">
+    <ActivityIndicator busy="true" width="100" height="100" class="activity-indicator"></ActivityIndicator>
+</StackLayout>
+
+<StackLayout *ngIf="!loading">
+    <StackLayout class="info-container" orientation="vertical">
+        <Label class="top text-view-label fa" text="&#xf05a;"></Label>
+        <Label textWrap="true" class="bottom" [text]="'TABS.ACCOUNTS.ACTIVATE.ENTER_PIN' | translate"></Label>
+    </StackLayout>
+    <StackLayout class="body-container m-b-20" orientation="vertical">
+        <TextField class="input m-b-10" [(ngModel)]="pin" [hint]="'TABS.ACCOUNTS.ACTIVATE.PIN_INPUT_HINT' | translate" keyboardType="number" returnKeyType="done" secure="true"></TextField>
+        <Button class="btn btn-primary btn-active action-button fa" [text]="('TABS.ACCOUNTS.ACTIVATE.DONE' | translate) + ' &#xf05d;'" (tap)="onTapDone()"></Button>
+    </StackLayout>
+</StackLayout>

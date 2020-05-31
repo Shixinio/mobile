@@ -1,0 +1,49 @@
+@import '../../../app-variables';
+
+.balance-card {
+    background-color: $background-light;
+
+    margin-top: 30;
+    margin-left: 30;
+    margin-right: 30;
+}
+
+.balance-container {
+    background-color: $background-light;
+    padding: 3;
+    text-align: center;
+    border-radius: $default-border;
+    width: 80%;
+}
+
+.qrcode {
+    margin: 8;
+    width: 180;
+    height: 180;
+    border-radius: 3;
+}
+
+.positive {
+    color: $success-light;
+}
+
+.negative {
+    color: $error-light;
+}
+
+.unconfirmed {
+    color: $sky;
+}
+
+.camera-button {
+    height: $btn-height;
+    width: $btn-height;
+    margin-left: 0px
+    padding-left:0px;
+    margin-right: 0px
+    padding-right:0px;
+}
+
+.button-container {
+    width: 80%;
+}

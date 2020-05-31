@@ -1,0 +1,62 @@
+@import '../../../app-variables';
+
+.list-item {
+    margin: 5;
+}
+
+.transaction-label-in {
+    font-size: 16;
+    color: $success-light;
+    text-align: right;
+    vertical-align: middle;
+}
+
+.transaction-label-out {
+    font-size: 16;
+    color: $error-light;
+    text-align: right;
+    vertical-align: middle;
+}
+
+.transaction-card {
+    padding:0;
+    background-color: $background-light;
+}
+
+.address {
+    width: 100%
+}
+
+.amount {
+    font-size: 16;
+    width: 85%;
+}
+
+.confirmed-indicator {
+    color: $success-light;
+    vertical-align: middle;
+    font-size: 16;
+    padding-left: 5;
+}
+
+.unconfirmed-indicator {
+    color: $sky;
+    vertical-align: middle;
+    font-size: 16;
+    padding-left: 5;
+}
+
+.decrypt-button {
+    margin: 0;
+    padding: 0;
+    height: 50;
+    width: 50;
+}
+
+.vertical-center {
+    vertical-align: center;
+}
+
+.vertical-bottom {
+    vertical-align: bottom;
+}

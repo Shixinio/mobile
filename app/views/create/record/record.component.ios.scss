@@ -1,0 +1,12 @@
+@import '../../../app-ios-variables';
+
+.chip {
+    padding-top: 5;
+    text-align: center;
+    margin: 10 2 10 2;
+    height: 38;
+    width: 50%;
+    font-size: 24;
+    border-radius: 7;
+    background-color: $light-gray;
+}

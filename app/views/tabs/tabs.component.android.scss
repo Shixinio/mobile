@@ -1,0 +1,22 @@
+@import '../../app-variables';
+
+// Place any CSS rules you want to apply only on Android here
+TabView {
+    tab-text-color: $default-text;
+    selected-tab-text-color: $background-dark;
+    android-selected-tab-text-color: $background-dark;
+    android-selected-tab-highlight-color: $background-dark;
+    font-size: 10;
+}
+
+.action-bar {
+    background-color: #F5F5F5;
+}
+
+.tab-view-item {
+    background-color: $background-light;
+}
+
+.tab {
+    font-size: 14;
+}
